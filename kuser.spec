@@ -1,0 +1,44 @@
+Summary:	Users and groups manager for KDE4
+Name:		kuser
+Version:	4.11.0
+Release:	1
+Epoch:		2
+License:	GPLv2+
+Group:		Graphical desktop/KDE
+Url:		http://www.kde.org
+%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
+%if %{is_beta}
+%define ftpdir unstable
+%else
+%define ftpdir stable
+%endif
+Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/%{name}-%{version}.tar.xz
+BuildRequires:	kdelibs4-devel
+
+%description
+Kuser is a tool to create, remove and modify user accounts and groups.
+
+%files
+%{_kde_bindir}/kuser
+%{_kde_applicationsdir}/kuser.desktop
+%{_kde_appsdir}/kuser
+%{_kde_datadir}/config.kcfg/kuser.kcfg
+%{_kde_docdir}/*/*/kuser
+%{_kde_iconsdir}/*/*/*/kuser*
+
+#------------------------------------------------------------------------
+
+%prep
+%setup -q
+
+%build
+%cmake_kde4
+%make
+
+%install
+%makeinstall_std -C build
+
+%changelog
+* Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.0-1
+- Split from kdeadmin4 package as upstream did
+- New version 4.11.0
