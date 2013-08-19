@@ -14,6 +14,7 @@ Url:		http://www.kde.org
 %endif
 Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
+BuildRequires:	kdepimlibs4-devel
 
 %description
 Kuser is a tool to create, remove and modify user accounts and groups.
