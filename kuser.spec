@@ -1,6 +1,6 @@
 Summary:	Users and groups manager for KDE4
 Name:		kuser
-Version:	4.11.4
+Version:	4.12.1
 Release:	1
 Epoch:		2
 License:	GPLv2+
@@ -40,6 +40,9 @@ Kuser is a tool to create, remove and modify user accounts and groups.
 %makeinstall_std -C build
 
 %changelog
+* Tue Jan 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.12.1-1
+- New version 4.12.1
+
 * Wed Dec 04 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.4-1
 - New version 4.11.4
 
