@@ -1,7 +1,7 @@
 Summary:	Users and groups manager for KDE4
 Name:		kuser
 Version:	16.08.3
-Release:	1
+Release:	2
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
