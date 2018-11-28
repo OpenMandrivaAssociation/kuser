@@ -1,7 +1,7 @@
 Summary:	Users and groups manager for KDE4
 Name:		kuser
 Version:	16.08.3
-Release:	3
+Release:	4
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -13,8 +13,13 @@ Url:		http://www.kde.org
 %define ftpdir stable
 %endif
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kdelibs-devel
-BuildRequires:	kdepimlibs4-devel
+Patch0:		https://aur.archlinux.org/cgit/aur.git/plain/port_to_kf5.patch?h=kuser-frameworks
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(KF5KIO)
+BuildRequires:	cmake(KF5Ldap)
+BuildRequires:	cmake(KF5KDELibs4Support)
+BuildRequires:	cmake ninja
 
 %description
 Kuser is a tool to create, remove and modify user accounts and groups.
@@ -30,15 +35,14 @@ Kuser is a tool to create, remove and modify user accounts and groups.
 #------------------------------------------------------------------------
 
 %prep
-%setup -q
-
-%build
-%cmake_kde4 -DCMAKE_MINIMUM_REQUIRED_VERSION=2.6 \
+%autosetup -p1
+%cmake_kde5 -DCMAKE_MINIMUM_REQUIRED_VERSION=2.6 \
     -DKU_FIRSTUID=1000 \
     -DKU_FIRSTGID=1000
 
-%make
+%build
+%ninja_build -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
