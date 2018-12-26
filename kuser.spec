@@ -20,17 +20,18 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5Ldap)
 BuildRequires:	cmake(KF5KDELibs4Support)
 BuildRequires:	cmake ninja
+BuildRequires:	docbook-dtds
 
 %description
 Kuser is a tool to create, remove and modify user accounts and groups.
 
 %files
 %{_bindir}/kuser
-%{_datadir}/applications/kde4/kuser.desktop
-%{_datadir}/apps/kuser
+%{_datadir}/applications/kuser.desktop
+%{_datadir}/kuser
 %{_datadir}/config.kcfg/kuser.kcfg
-%doc %{_docdir}/*/*/kuser
 %{_iconsdir}/*/*/*/kuser*
+%doc %{_docdir}/*/*/kuser
 
 #------------------------------------------------------------------------
 
