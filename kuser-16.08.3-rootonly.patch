@@ -1,0 +1,37 @@
+diff -up kuser-16.08.3/ku_main.cpp.omv~ kuser-16.08.3/ku_main.cpp
+--- kuser-16.08.3/ku_main.cpp.omv~	2019-01-30 21:04:19.977443707 +0100
++++ kuser-16.08.3/ku_main.cpp	2019-01-30 21:08:17.975442517 +0100
+@@ -37,6 +37,9 @@
+ #include <k4aboutdata.h>
+ #include <KGlobal>
+ 
++#include <QMessageBox>
++#include <unistd.h>
++
+ static const char *description =
+ 	I18N_NOOP("KDE User Editor");
+ 
+@@ -58,6 +61,11 @@ int main(int argc, char **argv)
+   KConfigGroup group( KGlobal::config(), "general" );
+   KU_Global::initCfg( group.readEntry( "connection", "default" ) );
+ 
++  if(getuid()) {
++    QMessageBox::critical(0, i18n("KDE User Manager"), i18n("This application needs to be run with root privileges."), QMessageBox::Ok, QMessageBox::Ok);
++    return 1;
++  }
++
+   mw = new KU_MainWidget();
+   mw->setCaption(i18n("KDE User Manager"));
+   mw->show();
+diff -up kuser-16.08.3/kuser.desktop.omv~ kuser-16.08.3/kuser.desktop
+--- kuser-16.08.3/kuser.desktop.omv~	2019-01-30 21:01:37.146446755 +0100
++++ kuser-16.08.3/kuser.desktop	2019-01-30 21:04:06.788280028 +0100
+@@ -156,7 +156,7 @@ GenericName[x-test]=xxUser Managerxx
+ GenericName[zh_CN]=用户管理程序
+ GenericName[zh_HK]=用戶管理員
+ GenericName[zh_TW]=使用者管理程式
+-Exec=dbus-run-session kuser %i -caption %c
++Exec=kdesu %i kuser
+ Icon=kuser
+ Type=Application
+ X-DocPath=kuser/index.html
