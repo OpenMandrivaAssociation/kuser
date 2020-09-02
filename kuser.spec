@@ -1,7 +1,7 @@
 Summary:	Users and groups manager
 Name:		kuser
 Version:	16.08.3
-Release:	5
+Release:	6
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -15,6 +15,7 @@ Url:		http://www.kde.org
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
 Patch0:		https://aur.archlinux.org/cgit/aur.git/plain/port_to_kf5.patch?h=kuser-frameworks
 Patch1:		kuser-16.08.3-rootonly.patch
+Patch2:		kuser-16.08.3-rip-kapplication.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	cmake(KF5KIO)
