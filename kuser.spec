@@ -1,7 +1,7 @@
 Summary:	Users and groups manager
 Name:		kuser
 Version:	16.08.3
-Release:	6
+Release:	7
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
