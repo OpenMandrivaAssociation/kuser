@@ -31,7 +31,7 @@ diff -up kuser-16.08.3/kuser.desktop.omv~ kuser-16.08.3/kuser.desktop
  GenericName[zh_HK]=用戶管理員
  GenericName[zh_TW]=使用者管理程式
 -Exec=dbus-run-session kuser %i -caption %c
-+Exec=kdesu %i kuser
++Exec=kdesu -i %i kuser
  Icon=kuser
  Type=Application
  X-DocPath=kuser/index.html
