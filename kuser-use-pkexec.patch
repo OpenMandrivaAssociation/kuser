@@ -1,0 +1,12 @@
+diff -up kuser-16.08.3/kuser.desktop.omv~ kuser-16.08.3/kuser.desktop
+--- kuser-16.08.3/kuser.desktop.omv~	2023-08-30 18:21:45.195188577 +0200
++++ kuser-16.08.3/kuser.desktop	2023-08-30 18:22:41.766729834 +0200
+@@ -156,7 +156,7 @@ GenericName[x-test]=xxUser Managerxx
+ GenericName[zh_CN]=用户管理程序
+ GenericName[zh_HK]=用戶管理員
+ GenericName[zh_TW]=使用者管理程式
+-Exec=kdesu -i %i kuser
++Exec=pkexec kuser
+ Icon=kuser
+ Type=Application
+ X-DocPath=kuser/index.html

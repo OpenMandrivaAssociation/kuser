@@ -1,0 +1,22 @@
+diff -up kuser-16.08.3/CMakeLists.txt.omv~ kuser-16.08.3/CMakeLists.txt
+--- kuser-16.08.3/CMakeLists.txt.omv~	2023-08-30 18:12:06.178697294 +0200
++++ kuser-16.08.3/CMakeLists.txt	2023-08-30 18:16:35.918241691 +0200
+@@ -16,7 +16,8 @@ include(KDECompilerSettings)
+ include(FeatureSummary)
+ 
+ find_package(Qt5 REQUIRED COMPONENTS Widgets)
+-find_package(KF5 REQUIRED COMPONENTS KDELibs4Support KIO Ldap)
++find_package(KF5 REQUIRED COMPONENTS KDELibs4Support KIO)
++find_package(KPim5Ldap 5.24.0 CONFIG REQUIRED)
+ 
+ 
+ include (MacroLibrary)
+@@ -105,7 +106,7 @@ kde4_add_ui_files(kuser_SRCS ku_filesset
+ 
+ kde4_add_executable(kuser ${kuser_SRCS})
+ 
+-target_link_libraries(kuser KF5::KDELibs4Support KF5::KIONTLM KF5::Ldap)
++target_link_libraries(kuser KF5::KDELibs4Support KF5::KIONTLM KPim5::Ldap)
+ if(HAVE_CRYPT_LIBRARY)
+ 	target_link_libraries(kuser crypt)
+ endif(HAVE_CRYPT_LIBRARY)
