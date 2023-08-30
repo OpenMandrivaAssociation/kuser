@@ -1,7 +1,7 @@
 Summary:	Users and groups manager
 Name:		kuser
 Version:	16.08.3
-Release:	10
+Release:	11
 Epoch:		2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -18,6 +18,7 @@ Patch0:		https://aur.archlinux.org/cgit/aur.git/plain/port_to_kf5.patch?h=kuser-
 Patch1:		kuser-16.08.3-rootonly.patch
 Patch2:		kuser-16.08.3-rip-kapplication.patch
 Patch3:		kuser-16.08.3-kldap-to-kpimldap.patch
+Patch4:		kuser-use-pkexec.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	cmake(KF5KIO)
